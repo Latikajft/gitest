@@ -1,0 +1,26 @@
+class Solution {
+    // Function to return Breadth First Traversal of given graph.
+    public ArrayList<Integer> dfsOfGraph(int V, ArrayList<ArrayList<Integer>> adj) {
+        
+        boolean vis[] = new boolean[V];
+        ArrayList <Integer> ans = new ArrayList<>();
+        
+        for(int i = 0; i<V ; i++){
+            if(!vis[i]){
+                dfs(i,adj,vis,ans);
+            }
+        }
+        
+    }
+    
+    public void dfs(int v, ArrayList<ArrayList<Integer>> adj, boolean vis[], ArrayList <Integer> ans){
+        vis[v] = true;
+        ans.add[v];
+        
+        for(Integer neighbour: adj.get(v)){
+            if(!vis[v]){
+                dfs(neighbour, adj, vis, ans);
+            }
+        }
+    }
+}
