@@ -1,0 +1,20 @@
+class Solution {
+    public int kthFactor(int n, int k) {
+        
+        ArrayList<Integer> ar = new ArrayList<>();
+        
+        for(int i = 1; i<n ; i++){
+            if(n%i == 0){
+                ar.add(i);
+            }
+        }
+        ar.add(n);
+        
+        if(!(ar.size()<k)){
+            return ar.get(k-1);
+        }else{
+            return -1;
+        }
+        
+    }
+}
