@@ -1,0 +1,24 @@
+class Solution {
+    public int climbStairs(int n) {
+        int dp[] = new int[n+1];
+        Arrays.fill(dp, -1);
+        
+        return dyp(n, dp);
+        
+    }
+    
+    public int dyp(int num, int []ar){
+        if(num <= 1){
+            return 1;
+        }  
+        if(ar[num] > 0){
+            return ar[num];
+        }
+        
+        int op1 = dyp(num-1, ar);
+        int op2 = dyp(num-2, ar);
+        int res = op1 + op2;
+        ar[num] = res;
+        return res;
+    }
+}
