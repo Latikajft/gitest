@@ -1,0 +1,26 @@
+class Solution {
+    public int nthUglyNumber(int n) {
+        int al[] = new int[n];
+        al[0] = 1;
+        
+        int i = 0, j = 0, k = 0;
+        
+        for(int t = 1 ;t<n ; t++){
+            int cur = Math.min(Math.min(2*al[i] , 3*al[j]) , 5*al[k]);
+            
+            al[t] = cur;
+            
+            if(cur == 2*al[i]){
+                i++;
+            }
+            if(cur == 3*al[j]){
+                j++;
+            }
+            if(cur == 5*al[k]){
+                k++;
+            }
+        }
+        
+        return al[n-1];
+    }
+}
